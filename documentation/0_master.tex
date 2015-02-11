@@ -1,0 +1,134 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt,a4paper,notitlepage,twoside,openright]{report}
+
+\usepackage{xgreek} % Required for greek hyphenation
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+%\usepackage{fontspec} % Required for fonts configuration
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+%\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage[margin=4pt,font=normalsize,labelfont=bf,textfont=it]{caption} % captions
+\usepackage{subcaption} % subfigures
+\usepackage{listings} % Required for insertion of code
+\usepackage{unicode-math} % Required to display math
+\usepackage{tocloft} % Used to display dots in the table of contents
+\usepackage{etoolbox} % Used to customize fancyhdr macros to colorize rule(s)
+\usepackage{setspace}
+\usepackage[colorlinks=true, urlcolor=LinksGray]{hyperref} %hyperlinks
+\usepackage[notlof,notlot,nottoc]{tocbibind} %bibliography is not a numbered chapter
+\usepackage[top=1.25in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{array} % for use with tables
+\usepackage{mdwlist} % for compact lists
+\usepackage{metalogo} % XeLaTeX logo
+% Fonts
+\usepackage{libertine} %Font -> Linux Libertine
+\usepackage{courier} %Font -> Courier 
+%\defaultfontfeatures{SizeFeatures={Size=12},Scale=MatchLowercase,Script=Greek}
+%\setmainfont[Mapping=tex-text]{Linux Libertine O}
+%\setsansfont[Mapping=tex-text]{Liberaton Sans}
+\setmonofont[SizeFeatures={Size=10}]{Courier}
+% \setmathfont[Scale=MatchUppercase]{Asana Math}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\hypersetup{linkcolor=blue,citecolor=blue,linktoc=page} %hyperlink options
+
+%----------------------------------------------------------------------------------------
+%	PAGE STYLE
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\lhead[\rm \bf \thepage]{\fancyplain{}{\sl{\rightmark}}}
+\chead{}
+\rhead{\rm \bf \thepage}{\fancyplain{}{\sl{\leftmark }}}
+\rfoot{}
+\cfoot{}
+\lfoot{}
+%\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{CommentsDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\definecolor{NumbersLightGray}{rgb}{0.6,0.6,0.6} % This is the color used for numbers
+\lstloadlanguages{Java} % Load Java syntax for listings, for a list of other languages supported see: ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{% Structure
+        frame=bottomline, % Single frame around code
+        captionpos=b, % Place caption to the bottom
+        breaklines=true, % Wrap if line is too big
+        postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\rightdowncurvedarrow\space}},
+       % Numbering
+        numbers=left, % Line numbers on left
+        firstnumber=1, % Line numbers start with line 1
+        numberstyle=\footnotesize\color{NumbersLightGray}, % Line numbers are light gray and small
+        numberfirstline=true, % Always number the first line
+        stepnumber=1, % Line numbers go in steps of 1
+        % Code
+        language=Java, % Use Java in this example
+        basicstyle=\tiny\ttfamily, % Use small true type font
+        keywordstyle=\color{Blue}\bf\ttfamily, % keywords bold and blue
+        identifierstyle=, % Nothing special about identifiers
+        commentstyle=\usefont{T1}{pcr}{m}{sl}\color{CommentsDarkGreen}\small, % Code comments small dark green courier font
+        stringstyle=\color{Purple}, % Strings are purple
+        showstringspaces=false, % Don't put marks in string spaces
+        tabsize=4, % 4 spaces per tab
+        keepspaces=true, % keep spaces in code, usefull for indentation
+        morecomment=[l][\color{Blue}]{...} % Line continuation (...) like blue comment
+}
+
+% Creates a new command to include a snippet from file
+%   the first parameter is for the label and caption of the listing
+%   the second parameter is the startline of the snippet
+%   the third parameter is the endtline of the snippet
+%   the fourth parameter is the name of the file (without .java)
+\newcommand{\jsnippet}[4]{
+\lstinputlisting[language=Java, firstline=#1, lastline=#2, #3]{#4}
+}
+
+\newcommand{\code}[1]{
+\ttfamily{#1}\rmfamily\
+}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+
+
+%----------------------------------------------------------------------------------------
+%	COLORS
+%----------------------------------------------------------------------------------------
+
+\definecolor{LightGray}{rgb}{0.45,0.45,0.45}
+\definecolor{LinksGray}{rgb}{0.3,0.3,0.3}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Ανάπτυξη Εφαρμογής Android για την Εύρεση και Απεικόνιση Γεωγραφικών Δεδομένων\\με συγχρονές τεχνολογίες web} % Assignment title
+\newcommand{\hmwkType}{Πτυχιακή Εργασία}
+\newcommand{\hmwkAuthorName}{Ορέστης\ Μ.\ Κτενάς\ [Π03078]} % Author name 
+\newcommand{\hmwkAuthorEmail}{orestiskt@gmail.com} % Author email
+\newcommand{\hmwkSupervisor}{Μαρία Βίρβου} % Supervisor
+
+\author{\normalsize\textbf{\hmwkAuthorName}\\ \normalsize\textcolor{LightGray}{\hmwkAuthorEmail}}
+\date{\normalsize{Πειραιάς\ 2014}} % Insert date here if you want it to appear below author's name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\include{abstract}
+\include{chapter1-intro}
+\include{chapter2-android_platform}
+\include{chapter3-app_overview}
+\include{chapter4-app}
+\include{chapter5-server}
+\include{chapter6-conclusion}
+\include{references}
+\end{document}

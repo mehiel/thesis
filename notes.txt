@@ -1,0 +1,9 @@
+1. SSL/TLS versioning (provided/accepted)
+2. available ciphers (weak ciphers allowance)
+3. CA chains (propably use a graph)
+4. X509 data
+5. elliptic curve usage (in asymmetric algoz)
+6. HTTP GET for headers (especially host and server)
+7. WHOIS for geoip++ data
+8. TLS extension for host???
+9. keep each phase response (especially the non-valid ones)
