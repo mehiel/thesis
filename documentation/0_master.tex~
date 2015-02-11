@@ -125,7 +125,5 @@
 \begin{document}
 \include{abstract}
 \include{chapter1-intro}
-\include{chapter2-analysis}
-\include{chapter3-attacks}
 \include{references}
 \end{document}
